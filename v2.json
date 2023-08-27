@@ -1,0 +1,10 @@
+{
+    "+": "    call increment\n",
+    "-": "    call decrement\n",
+    "<": "    call move_left\n",
+    ">": "    call move_right\n",
+    "]": "    test al, al\n    jnz a{stack}\n",
+    "[": "    a{stack}:\n",
+    ".": "    call print\n",
+    ",": "    call read\n"
+}

@@ -66,7 +66,7 @@ values = {
     "length-1": length-1,
     "asm": asm
 }
-out = base_assembly.format_map( values)
+out = base_assembly.format_map( values).format_map(values)
 print(out)
 
 with open(args.outputfile, "w") as f:

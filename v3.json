@@ -1,0 +1,10 @@
+{
+    "+": "    inc al\n",
+    "-": "    dec al\n",
+    "<": "    call move_left\n",
+    ">": "    call move_right\n",
+    "]": "    jmp opn{stack}\n cls{stack}:\n",
+    "[": "    opn{stack}:\n test al, al\n jz cls{stack}\n",
+    ".": "    call print\n",
+    ",": "    call read\n"
+}

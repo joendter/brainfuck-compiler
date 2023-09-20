@@ -3,8 +3,8 @@
     "-": "    dec al\n",
     "<": "    call move_left\n",
     ">": "    call move_right\n",
-    "]": "    test al, al\n    jnz a{stack}\n",
-    "[": "    a{stack}:\n",
+    "]": "    test al, al\n    jnz opn{stack}\n",
+    "[": "    opn{stack}:\n",
     ".": "    call print\n",
     ",": "    call read\n"
 }

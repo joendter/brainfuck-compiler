@@ -5,7 +5,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("-i", "--inputfile", help="Input file", required=True)
 parser.add_argument("-o", "--outputfile", help="Output file", default="out.nasm")
 parser.add_argument("-b", help="Base assembly file", default="base.nasm")
-parser.add_argument("-c", help="character substitution list as json", default="basic.json")
+parser.add_argument("-c", help="character substitution list as json", default="meanings.json")
 parser.add_argument("-q", help="quiet", action='store_true')
 parser.add_argument("-l", help="Length of the bytearray the turing machine uses", default=1024)
 

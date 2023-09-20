@@ -60,7 +60,7 @@ for cha in code:
         else:
             asm += character_substitution[cha]
 
-length = args.l
+length = int(args.l)
 values = {
     "length" : length,
     "length-1": length-1,

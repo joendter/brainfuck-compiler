@@ -5,38 +5,40 @@ section .data
     dat times {length} db 0
 
 ;ecx = index
-;r11 = value
+;al = value
 section .text
 move_left: ; <
+    mov byte [ecx], al
     cmp ecx, dat
     jne normal_left
     mov ecx, dat+{length-1}
+    mov al, byte [ecx]
     ret
 
     normal_left:
         dec ecx
+        mov al, byte [ecx]
     ret
 
 move_right: ; >
+    mov byte [ecx], al
     cmp ecx, dat+{length-1}
     jne normal_right
     mov ecx, dat
+    mov al, byte [ecx]
     ret
 
     normal_right:
         inc ecx
+        mov al, byte [ecx]
     ret
 
 increment: ; +
-    mov al, byte [ecx]
     inc al
-    mov byte [ecx], al
     ret
 
 decrement: ; -
-    mov al, byte [ecx]
     dec al
-    mov byte [ecx], al
     ret
 
 print: ; .
@@ -44,6 +46,7 @@ print: ; .
     ;######################################
     ; syscall - write(1, msg, len);
     ;######################################
+    mov byte [ecx], al
     mov eax, 4     ; 4 = Syscall number for Write()
     mov ebx, 1     ; File Descriptor to write to
                    ; In this case: STDOUT is 1
@@ -51,13 +54,16 @@ print: ; .
                    ; which is 1 character
     int 0x80       ; Poke the kernel and tell it to run the
                    ; write() call we set up
+    mov al, byte [ecx]
     ret
 
 read: ; ,
+    mov byte [ecx], al
     mov eax, 3          ; Syscall number for read
     mov ebx, 0          ; stdin?
     mov edx, 1          ; | <- length
     int 80h             
+    mov al, byte [ecx]
     ret
 
 exit:
@@ -70,6 +76,7 @@ exit:
 
 _start:
     mov ecx, dat
+    mov al, byte [ecx]
 {asm}
 
     mov ebx, 0     ; The status code we want to provide.

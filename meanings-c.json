@@ -1,0 +1,10 @@
+{
+    "+": "dat[index]++;\n",
+    "-": "dat[index]--;\n",
+    "<": "index = (index - 1) % length;\n",
+    ">": "index = (index + 1) % length;\n",
+    "[": "while (dat[index]){{{{\n",
+    "]": "}}}}\n",
+    ".": "putc(dat[index], stdout);\n",
+    ",": "dat[index] = getc(stdin);\n"
+}

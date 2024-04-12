@@ -1,0 +1,11 @@
+{
+"+": "add al, {number}\n",
+"-": "sub al, {number}\n",
+"<": "mov byte [dat+ecx], al\nsub cx, {number}\nmov al, byte [dat+ecx]\n",
+">": "mov byte [dat+ecx], al\nadd cx, {number}\nmov al, byte [dat+ecx]\n",
+"]": "jmp opn{stack}\n cls{stack}:\n",
+"[": "opn{stack}:\n test al, al\n jz cls{stack}\n",
+".": "call print\n",
+",": "call read\n",
+"":  ""
+}
